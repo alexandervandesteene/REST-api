@@ -1,17 +1,30 @@
+var express = require('express');
 var http = require('http').Server(app); // http server
 var mysql = require('mysql'); // Mysql include
 var bodyParser = require("body-parser"); // Body parser for fetch posted data
 var config = require("./config.json");
+var port = process.env.PORT || 3000;
 
 var connection = mysql.createConnection({ // Mysql Connection
   host: config.host,
   user: config.user,
   password: config.password,
   database: config.database,
-  port : config.port,
 });
+connection.connect();
+
+
+http.listen(port, function () {
+  console.log('Server listening at port %d', port);
+});
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json()); // Body parser use JSON data
+
+
+app.get('/',function(request, response){
+    response.render('index.ejs',{title: 'Home'})
+});
 
 
 app.get('/book',function(req,res){
