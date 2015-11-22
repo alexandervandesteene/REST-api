@@ -23,7 +23,7 @@ app.use(bodyParser.json()); // Body parser use JSON data
 
 
 app.get('/',function(request, response){
-    response.render('index.ejs',{title: 'Home'})
+    response.render('index.html',{title: 'Home'})
 });
 
 
