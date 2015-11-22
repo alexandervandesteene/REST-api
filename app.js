@@ -1,4 +1,5 @@
 var express = require('express');
+var app = express();
 var http = require('http').Server(app); // http server
 var mysql = require('mysql'); // Mysql include
 var bodyParser = require("body-parser"); // Body parser for fetch posted data
