@@ -15,6 +15,7 @@ app.use(bodyParser.json()); // Body parser use JSON data
 
 
 app.get('/book',function(req,res){
+    console.log("haal boeken op");
     var data = {
         "error":1,
         "Books":""
