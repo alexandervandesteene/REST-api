@@ -59,7 +59,7 @@ app.get('/addbook',function(req,res){
 		"Books":""
 	};
 	if(!!Bookname && !!Authorname && !!Price){
-		connection.query("INSERT INTO book VALUES('',?,?,?)",[Bookname,Authorname,Price],function(err, rows, fields){
+		connection.query("INSERT INTO book (BookName,AuthorName,Price) VALUES(?,?,?)",[Bookname,Authorname,Price],function(err, rows, fields){
 			if(!!err){
 				data["Books"] = "Error Adding data";
         console.log(err);
